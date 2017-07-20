@@ -1,4 +1,11 @@
-#include<ESP8266WiFi.h>
+/* 
+ *  Este programa hace parpadear 3 leds en diferente tiempo sin usar delay y no bloquear al
+ *  microcontrolador. 
+ *  Yeffri J. Salazar 
+ *  themicrofcontrol.wordpress.com 
+ *  13 de julio de 2017
+ */
+
 int tiempoLed1 = 3; // segundos
 int tiempoLed2 = 1; // segundos
 int tiempoLed3 = 10; // segundos
@@ -20,12 +27,14 @@ void setup() {
 void loop() {
   if (millis() - tiempoAnterior1 > tiempoLed1 * 1000) { // multiplicamos por mil para segundos
     tiempoAnterior1 = millis();
-  digitalWrite(led1, !digitalRead(led1));
-  }  if (millis() - tiempoAnterior2 > tiempoLed1 * 1000) { // multiplicamos por mil para segundos
+    digitalWrite(led1, !digitalRead(led1));
+  }
+  if (millis() - tiempoAnterior2 > tiempoLed1 * 1000) { // multiplicamos por mil para segundos
     tiempoAnterior2 = millis();
-  digitalWrite(led2, !digitalRead(led1));
-  }  if (millis() - tiempoAnterior3 > tiempoLed1 * 1000) { // multiplicamos por mil para segundos
+    digitalWrite(led2, !digitalRead(led1));
+  }
+  if (millis() - tiempoAnterior3 > tiempoLed1 * 1000) { // multiplicamos por mil para segundos
     tiempoAnterior3 = millis();
-  digitalWrite(led3, !digitalRead(led1));
+    digitalWrite(led3, !digitalRead(led1));
   }
 }
